@@ -9,7 +9,6 @@ import Foundation
 
 class NetworkManager: ObservableObject{
     
-    @Published var post = [Post]()
     @Published var mission = [Mission]()
     
     func fetchData(){
@@ -21,19 +20,19 @@ class NetworkManager: ObservableObject{
                     let decoder = JSONDecoder()
                     if let safeData = data {
                         do {
-                            let results = try decoder.decode(Array<Mission>.self, from: safeData)
+                            let results = try decoder.decode( Array<Mission>.self, from: safeData)
                             DispatchQueue.main.async {
                                 self.mission = results
                             }
-                        }catch {
+                        } catch {
                             print ("ERROR", error)
                         }
                     }
                 }
             }
             tasks.resume()
+            
         }
-        
     }
     
     func formatDate(date: String) -> String {

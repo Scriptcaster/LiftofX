@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct Results: Decodable{
-    let hits: [Post]
-}
-
 struct Post: Decodable, Identifiable{
     var id: String{
         return objectID
@@ -21,16 +17,11 @@ struct Post: Decodable, Identifiable{
     let title: String
 }
 
-
 struct Initial: Decodable {
     let mission: [Mission]
 }
 
 struct Mission: Decodable, Identifiable {
-    
-//    var id: String{
-//        return id
-//    }
     let id: String
     let name: String
     let date_local: String
@@ -42,8 +33,4 @@ struct Mission: Decodable, Identifiable {
         case date_local = "date_local"
         case url = "url"
     }
-    
-    
-    
-    
 }
