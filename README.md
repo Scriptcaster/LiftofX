@@ -1,6 +1,6 @@
 # LiftofX
 
-An app to check upcoming SpaceX flight
+An app to check upcoming SpaceX launches.
 
 ## Screenshots
 
