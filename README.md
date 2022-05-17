@@ -1,5 +1,7 @@
 # LiftofX
 
+An app to check upcoming SpaceX flight
+
 ## Screenshots
 
 ![App Screenshot](
