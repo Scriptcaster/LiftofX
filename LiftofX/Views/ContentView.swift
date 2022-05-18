@@ -19,17 +19,22 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             List(networkManager.mission){ mission in
-                NavigationLink(destination: DetailView(name: mission.name)) {
+                NavigationLink(destination: DetailView(
+                    name: mission.name,
+                    thumbnail: mission.links.patch.small ?? mission.links.patch.defaultSmall
+                )) {
                     HStack {
                         VStack(alignment: .leading) {
                             Text(
                                 mission.name
-                            )
-                                .font(.headline)
+                            ).font(.headline)
                             Text(
-                                networkManager.formatDate(date: mission.date_local
-                            ))
-                            .font(.system(size: 14, weight: .light, design: .default))
+                                mission.links.patch.small ?? mission.links.patch.defaultSmall
+                            ).font(.headline)
+                            Text(
+                                networkManager.formatDate(date: mission.date_local)
+//                                mission.links.reddit.campaign
+                            ).font(.system(size: 14, weight: .light, design: .default))
                         }
                         .padding([.top, .bottom, .trailing], 7)
                     }

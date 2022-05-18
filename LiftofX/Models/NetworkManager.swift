@@ -20,9 +20,14 @@ class NetworkManager: ObservableObject{
                     let decoder = JSONDecoder()
                     if let safeData = data {
                         do {
+//                            decoder.keyDecodingStrategy = .convertFromSnakeCase
                             let results = try decoder.decode( Array<Mission>.self, from: safeData)
+                            
+//                            let links = try response.nestedContainer(keyedBy: CodingKeys.self, forKey: .links)
+                            
                             DispatchQueue.main.async {
                                 self.mission = results
+                                print(results)
                             }
                         } catch {
                             print ("ERROR", error)
